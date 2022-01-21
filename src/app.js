@@ -29,6 +29,6 @@ function displayWeather(response){
 
 let apiKey="ce735fca9b371504301605240e8fbfe8";
 let apiUrl=`http://api.openweathermap.org/data/2.5/weather?q=Cape Town&appid=${apiKey}&units=metric`;
-console.log(apiUrl)
+
 
 axios.get(apiUrl).then(displayWeather);
