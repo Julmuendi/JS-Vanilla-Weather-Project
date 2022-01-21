@@ -19,7 +19,6 @@ function displayWeather(response){
     humidityElement.innerHTML=response.data.main.humidity;
     let windElement=document.querySelector("#wind");
     windElement.innerHTML=Math.round(response.data.wind.speed);
-    console.log(response.data);
     let cityElement=document.querySelector("#city");
     let skyDescriptionElement=document.querySelector("#skydescription");
     skyDescriptionElement.innerHTML=response.data.weather[0].description;
