@@ -13,7 +13,6 @@ function formatDate(timestamp){
     return `${day} ${hours}:${minutes}`;
 }
 function displayWeather(response){
-    console.log(response.data);
     let temperatureElement=document.querySelector("#temp");
     temperatureElement.innerHTML=Math.round(response.data.main.temp);
     let humidityElement=document.querySelector("#humidity");
