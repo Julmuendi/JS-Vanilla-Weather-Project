@@ -53,13 +53,26 @@ form.addEventListener("submit",handleSubmit);
 
 
 
-function conversion(event){
+function fahrenheitConversion(event){
     event.preventDefault();
+    fahrenheitConversionLink.classList.add("active");
+    celsiusConversionLink.classList.remove("active");
     let temperatureElement=document.querySelector("#temp");
     temperatureElement.innerHTML=Math.round((celsiusTemperature*9)/5 + 32);
 }
-let conversionLink=document.querySelector("#fahrenheit-link");
-conversionLink.addEventListener("click",conversion);
+function displayCelsius(event){
+    event.preventDefault();
+    celsiusConversionLink.classList.add("active");
+    fahrenheitConversionLink.classList.remove("active");
+    let temperatureElement=document.querySelector("#temp");
+    temperatureElement.innerHTML=Math.round(celsiusTemperature);
+}
+
+let fahrenheitConversionLink=document.querySelector("#fahrenheit-link");
+fahrenheitConversionLink.addEventListener("click",fahrenheitConversion);
+
+let celsiusConversionLink=document.querySelector("#celsius-link");
+celsiusConversionLink.addEventListener("click",displayCelsius);
 
 
 search("Nairobi")

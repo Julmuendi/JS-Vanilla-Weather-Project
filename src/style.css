@@ -73,3 +73,11 @@ li{
 a{
     text-decoration: none;
 }
+.temperature-units .active{
+    color: #202124;
+    cursor: pointer;
+}
+.temperature-units .active:hover{
+    text-emphasis-color: black;
+
+}
