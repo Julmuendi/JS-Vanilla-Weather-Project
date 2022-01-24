@@ -14,7 +14,7 @@ function formatDate(timestamp){
 }
 function displayWeather(response){
     let temperatureElement=document.querySelector("#temp");
-    temperatureElement.innerHTML=Math.round(response.data.main.temp);
+    temperatureElement.innerHTML=Math.round(celsiusTemperature);
     let humidityElement=document.querySelector("#humidity");
     humidityElement.innerHTML=response.data.main.humidity;
     let windElement=document.querySelector("#wind");
@@ -27,6 +27,7 @@ function displayWeather(response){
     dateElement.innerHTML=formatDate(response.data.dt*1000);
     iconElement=document.querySelector("#icon");
     iconElement.setAttribute("src",`https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+    celsiusTemperature=response.data.main.temp;
 }
 
 
@@ -47,5 +48,17 @@ function handleSubmit(event){
 
 let form=document.querySelector("#search-form");
 form.addEventListener("submit",handleSubmit);
+
+
+
+function conversion(event){
+    event.preventDefault();
+    let temperatureElement=document.querySelector("#temp");
+    temperatureElement.innerHTML=Math.round((celsiusTemperature*9)/5 + 32);
+}
+let conversionLink=document.querySelector("#fahrenheit-link");
+conversionLink.addEventListener("click",conversion);
+
+let celsiusTemperature=null;
 
 search("Nairobi")
