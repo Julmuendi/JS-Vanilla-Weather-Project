@@ -29,7 +29,7 @@ li{
     font-family: 'PT Mono', monospace;
     margin-top: 6px;
     padding-left: 6px;
-    background: linear-gradient(-20deg, rgb(233, 222, 250) 0%, rgb(251, 252, 219) 100%);
+    background: #E6E6E6;
 
 }
 .temperature{
