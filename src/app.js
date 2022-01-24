@@ -29,8 +29,23 @@ function displayWeather(response){
     iconElement.setAttribute("src",`https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 }
 
-let apiKey="ce735fca9b371504301605240e8fbfe8";
-let apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=Cape Town&appid=${apiKey}&units=metric`;
 
 
-axios.get(apiUrl).then(displayWeather);
+function search(city){
+    let apiKey="ce735fca9b371504301605240e8fbfe8";
+    let apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    
+    
+    axios.get(apiUrl).then(displayWeather);
+}
+
+function handleSubmit(event){
+    event.preventDefault();
+    let cityInputElement=document.querySelector("#city-input");
+    search(cityInputElement.value);
+}
+
+let form=document.querySelector("#search-form");
+form.addEventListener("submit",handleSubmit);
+
+search("Nairobi")
