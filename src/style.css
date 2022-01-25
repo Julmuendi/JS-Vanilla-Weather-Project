@@ -81,3 +81,38 @@ a{
     text-emphasis-color: black;
 
 }
+.weather-forecast{
+    margin-top: 20px;
+    text-align: center;
+    color: #000;
+    
+
+}
+.weatherforecast-day{
+    
+    font-size: 16px;
+    opacity: 0.5;
+    
+    
+}
+.weatherforecast-image{
+    height: 48px;
+    margin-top: 0;
+    width: 30px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    
+
+}
+.weatherforecast-temperature{
+    margin-top: 15px;
+    font-weight: normal;
+    line-height: 15px;
+}
+.weatherforecast-temperature-max{
+    font-size: 14px;
+}
+.weatherforecast-temperature-min{
+font-size: 13px;
+opacity: o.5;
+}
