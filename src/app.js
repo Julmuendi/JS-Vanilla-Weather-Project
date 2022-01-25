@@ -67,6 +67,27 @@ function displayCelsius(event){
     let temperatureElement=document.querySelector("#temp");
     temperatureElement.innerHTML=Math.round(celsiusTemperature);
 }
+function displayForecast(){
+    let forecastElement=document.querySelector("#forecast");
+    let forecastHTML=`<div class="row">`;
+    let days=["Wed","Thu", "Fri", "Sat","Sun", "Mon"];
+    days.forEach(function(day){
+        forecastHTML=forecastHTML + `
+        <div class="col-2">
+        <div class="weatherforecast-day">${day}</div>
+         <div class="weatherforecast-image">
+         <img src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"/> 
+         </div>
+        <div class="weatherforecast-temperature"> 
+            <span class="weatherforecast-temperature-max">22°</span><span class="weatherforecast-temperature-min"> 18°</span>
+         </div>
+     </div>
+     `;
+
+    });
+    forecastHTML=forecastHTML+`</div>`;
+    forecastElement.innerHTML=forecastHTML;
+}
 
 let fahrenheitConversionLink=document.querySelector("#fahrenheit-link");
 fahrenheitConversionLink.addEventListener("click",fahrenheitConversion);
@@ -76,3 +97,4 @@ celsiusConversionLink.addEventListener("click",displayCelsius);
 
 
 search("Nairobi")
+displayForecast()
