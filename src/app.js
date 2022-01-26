@@ -77,24 +77,41 @@ function displayCelsius(event){
     let temperatureElement=document.querySelector("#temp");
     temperatureElement.innerHTML=Math.round(celsiusTemperature);
 }
+function formatDay(timestamp){
+    let date=new Date(timestamp*1000);
+    let days=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+
+    let day=days[date.getDay()];
+
+    return day;
+    
+    
+}
 function displayForecast(response){
-    console.log(response.data);
+    console.log(response.data.daily);
+    let forecast=response.data.daily;
     let forecastElement=document.querySelector("#forecast");
+    let forecastIconElement=document.querySelector("#forecast-icon");
+
+   
+    
     let forecastHTML=`<div class="row">`;
-    let days=["Wed","Thu", "Fri", "Sat","Sun", "Mon"];
-    days.forEach(function(day){
+    
+    forecast.forEach(function(forecastDay, index){
+        if(index<6){
         forecastHTML=forecastHTML + `
         <div class="col-2">
-        <div class="weatherforecast-day">${day}</div>
-         <div class="weatherforecast-image">
-         <img src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"/> 
-         </div>
+        <div class="weatherforecast-day">${formatDay(forecastDay.dt)}</div>
+        <div class="weatherforecast-image">
+        <img src="https://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"/> 
+        </div>
         <div class="weatherforecast-temperature"> 
-            <span class="weatherforecast-temperature-max">22°</span><span class="weatherforecast-temperature-min"> 18°</span>
+            <span class="weatherforecast-temperature-max">${Math.round(forecastDay.temp.max)}°</span><span class="weatherforecast-temperature-min"> ${Math.round(forecastDay.temp.min)}°</span>
          </div>
      </div>
      `;
-
+     
+    }
     });
     forecastHTML=forecastHTML+`</div>`;
     forecastElement.innerHTML=forecastHTML;
@@ -108,4 +125,3 @@ celsiusConversionLink.addEventListener("click",displayCelsius);
 
 
 search("Nairobi")
-displayForecast()

@@ -89,23 +89,19 @@ a{
 
 }
 .weatherforecast-day{
-    
+    margin-bottom: 0;
     font-size: 16px;
-    opacity: 0.5;
+    opacity: 0.9;
+    
     
     
 }
 .weatherforecast-image{
-    height: 48px;
-    margin-top: 0;
     width: 30px;
-    margin-left: 20px;
-    margin-bottom: 10px;
-    
 
 }
 .weatherforecast-temperature{
-    margin-top: 15px;
+    margin-top: 0;
     font-weight: normal;
     line-height: 15px;
 }
