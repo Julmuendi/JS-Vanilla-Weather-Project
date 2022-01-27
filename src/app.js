@@ -13,10 +13,10 @@ function formatDate(timestamp){
     return `${day} ${hours}:${minutes}`;
 }
 function getForecast(coordinates){
-    console.log(coordinates);
+    
     let apiKey="ce735fca9b371504301605240e8fbfe8";
     let apiUrl=`https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
-    console.log(apiUrl);
+    
     axios.get(apiUrl).then(displayForecast);
     
 }
@@ -61,22 +61,6 @@ let celsiusTemperature=null;
 let form=document.querySelector("#search-form");
 form.addEventListener("submit",handleSubmit);
 
-
-
-function fahrenheitConversion(event){
-    event.preventDefault();
-    fahrenheitConversionLink.classList.add("active");
-    celsiusConversionLink.classList.remove("active");
-    let temperatureElement=document.querySelector("#temp");
-    temperatureElement.innerHTML=Math.round((celsiusTemperature*9)/5 + 32);
-}
-function displayCelsius(event){
-    event.preventDefault();
-    celsiusConversionLink.classList.add("active");
-    fahrenheitConversionLink.classList.remove("active");
-    let temperatureElement=document.querySelector("#temp");
-    temperatureElement.innerHTML=Math.round(celsiusTemperature);
-}
 function formatDay(timestamp){
     let date=new Date(timestamp*1000);
     let days=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
@@ -88,7 +72,6 @@ function formatDay(timestamp){
     
 }
 function displayForecast(response){
-    console.log(response.data.daily);
     let forecast=response.data.daily;
     let forecastElement=document.querySelector("#forecast");
     let forecastIconElement=document.querySelector("#forecast-icon");
@@ -118,11 +101,7 @@ function displayForecast(response){
     forecastElement.innerHTML=forecastHTML;
 }
 
-let fahrenheitConversionLink=document.querySelector("#fahrenheit-link");
-fahrenheitConversionLink.addEventListener("click",fahrenheitConversion);
 
-let celsiusConversionLink=document.querySelector("#celsius-link");
-celsiusConversionLink.addEventListener("click",displayCelsius);
 
 
 search("Nairobi")

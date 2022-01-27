@@ -70,17 +70,7 @@ li{
     position: relative;
     left:-30px;
 }
-a{
-    text-decoration: none;
-}
-.temperature-units .active{
-    color: #202124;
-    cursor: pointer;
-}
-.temperature-units .active:hover{
-    text-emphasis-color: black;
 
-}
 .weather-forecast{
     margin-top: 20px;
     text-align: center;
@@ -111,9 +101,4 @@ a{
 .weatherforecast-temperature-min{
 font-size: 13px;
 opacity: 0.5;
-}
-.humidity{
-    color: blueviolet;
-    opacity:0.5;
-    font-size:14px ;
 }
