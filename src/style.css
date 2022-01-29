@@ -1,3 +1,6 @@
+body{
+    display: flex;
+}
 h1{
     color: #202124;
     font-size: 24px;
@@ -101,4 +104,7 @@ li{
 .weatherforecast-temperature-min{
 font-size: 13px;
 opacity: 0.5;
+}
+.currentLoc{
+    
 }

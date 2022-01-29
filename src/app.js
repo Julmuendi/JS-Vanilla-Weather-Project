@@ -100,8 +100,23 @@ function displayForecast(response){
     forecastHTML=forecastHTML+`</div>`;
     forecastElement.innerHTML=forecastHTML;
 }
+function searchLocation(position){
+    console.log(position.coords);
+    let apiKey="ce735fca9b371504301605240e8fbfe8";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+  
+    axios.get(apiUrl).then(displayWeather);
+}
+function getCurrentLocation(event){
+    event.preventDefault()
+    navigator.geolocation.getCurrentPosition(searchLocation);
 
+}
+
+let currentLocationButton=document.querySelector("#currentLoc");
+currentLocationButton.addEventListener("click", getCurrentLocation);
 
 
 
 search("Nairobi")
+
